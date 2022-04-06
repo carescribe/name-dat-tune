@@ -1,21 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import StartButton from './images/start-button.png';
+import NameThatTune from './images/name-that-tune.png';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+      <header className="App-header" style={{ backgroundImage: `url("background-1.png")`, backgroundColor: "#66f7bd" }}>
+        <div style={{backgroundColor: "#d93fc5", opacity: 0.9 }}>
+          <img src={NameThatTune} alt="Start button" />
+        </div>
         <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          <img src={StartButton} alt="Start button" />
         </a>
       </header>
     </div>
