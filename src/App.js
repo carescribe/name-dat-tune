@@ -11,6 +11,7 @@ import Home from './Home.js';
 import Start from './Start.js';
 import Round from './Round.js';
 import Admin from './Admin.js';
+import CheckingAnswers from './CheckingAnswers.js';
 
 function App() {
   const [socket, setSocket] = useState(null);
@@ -31,6 +32,7 @@ function App() {
           <Route path="/start" element={<Start />} />
           <Route path="/admin" element={<Admin socket={socket} />} />
           <Route path="/round/:roundNo" element={<Round socket={socket} />} />
+          <Route path="/checking" element={<CheckingAnswers socket={socket} />} />
         </Routes>
       </BrowserRouter>
     </div>

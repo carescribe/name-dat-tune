@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import {
   useNavigate,
 } from "react-router-dom";
+import Container from "./lib/Container";
 
 function Round(props) {
   console.log(props)
@@ -24,10 +25,12 @@ function Round(props) {
   return (
     <header className="App-header">
       <h1>Round {params.roundNo}</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Enter your guess" />
-      </form>
 
+      <Container>
+        <form onSubmit={handleSubmit}>
+          <input type="text" placeholder="Enter your guess" />
+        </form>
+      </Container>
     </header>
   );
 }
