@@ -9,7 +9,7 @@ It's an express/socket.io server in the backend in the root.
 
 ```
 npm install
-ORIGIN_HOST=http://localhost:3001 yarn start
+yarn start
 ```
 
 In another terminal:

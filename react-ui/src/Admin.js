@@ -6,16 +6,8 @@ function Admin(props) {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io('http://localhost:3000/');
+    const newSocket = io('/');
     setSocket(newSocket);
-    // setGuesses([
-    //   {name: 'Tom', round: '1', guess: 'Tom'},
-    //   {name: 'Tom', round: '2', guess: 'sdfs'},
-    //   {name: 'Tom', round: '3', guess: 'sdf'},
-    //   {name: 'James', round: '1', guess: 'Foo'},
-    //   {name: 'James', round: '2', guess: 'Bar'},
-    //   {name: 'James', round: '3', guess: 'Baz'},
-    // ]);
     return () => newSocket.close();
   }, [setSocket]);
   

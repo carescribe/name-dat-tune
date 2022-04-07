@@ -4,15 +4,8 @@ const path = require('path');
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-
-const options = (process.env.ORIGIN_HOST ? {
-  cors: {
-    origin: process.env.ORIGIN_HOST
-  }
-}: {});
-const io = require("socket.io")(server, options);
-
-let guesses = {};
+// const io = new Server(server);
+const io = require("socket.io")();
 
 app.use(express.static(path.resolve(__dirname, './react-ui/build')));
 
@@ -33,8 +26,8 @@ io.on('connection', (socket) => {
   })
 
   socket.on('player-guess', (data) => {
+    console.log('%s guessed: %s for round: %s', data.name, data.guess, data.round);
     guesses[data.round] = data;
-    console.log(guesses);
     io.emit('player-has-guessed', guesses);
   })
 });
