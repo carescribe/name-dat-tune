@@ -1,23 +1,23 @@
 import StartButton from './images/start-button.png';
 import NameThatTune from './images/name-that-tune.png';
 import { Link } from "react-router-dom";
-
+import GifStack from './lib/GifStack';
+import Container from './lib/Container';
 
 function Home() {
   return (
     <header className="App-header">
-      <div style={
-        {
-          backgroundColor: "#d93fc5",
-          opacity: 0.9
-        }
-      }>
+
+      <GifStack />
+
+      <Container>
         <img src={NameThatTune}
           alt="Start button"/>
-      </div>
-      <Link to="/start">
-        <img src={StartButton} alt="Start button"/>
-      </Link>
+      
+        <Link to="/start">
+          <img src={StartButton} alt="Start button"/>
+        </Link>
+      </Container>
     </header>
   );
 }
