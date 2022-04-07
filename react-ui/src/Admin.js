@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import io from 'socket.io-client';
 
 function Admin(props) {
-  const [guesses, setGuesses] = useState(null);
+  const [guesses, setGuesses] = useState({});
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
@@ -21,6 +21,15 @@ function Admin(props) {
     })
   }
 
+  const showGuesses = (key) => {
+    return guesses[key].map(guess => {
+      console.log(guess.name)
+      return (
+        <p>{guess.name} - {guess.guess} - <input type="checkbox" /></p>
+      )
+    })
+  }
+
   return (
     <div style={
       {
@@ -34,9 +43,15 @@ function Admin(props) {
       }
     }>
       <label for="Number">Round number</label>
-      <input type="number" id="round"
-        onChange={onChange}/>
-
+      <input type="number" id="round" onChange={onChange} />
+      { Object.keys(guesses).map(key => {
+        return (
+          <div key={key}>
+            <h3>{key}</h3>
+            { showGuesses(key) }
+          </div>
+        )
+      })}
     </div>
   );
 }

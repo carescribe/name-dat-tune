@@ -28,7 +28,8 @@ io.on('connection', (socket) => {
 
   socket.on('player-guess', (data) => {
     console.log('%s guessed: %s for round: %s', data.name, data.guess, data.round);
-    guesses[data.round] = data;
+    if (!guesses[data.round]) guesses[data.round] = [];
+    guesses[data.round].push(data);
     io.emit('player-has-guessed', guesses);
   })
 });
