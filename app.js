@@ -12,7 +12,7 @@ const options = (process.env.ORIGIN_HOST ? {
 }: {});
 const io = require("socket.io")(server, options);
 
-let guesses = [];
+let guesses = {};
 
 app.use(express.static(path.resolve(__dirname, './react-ui/build')));
 
@@ -32,13 +32,10 @@ io.on('connection', (socket) => {
     io.emit('change-round', data);
   })
 
-  socket.on('message', (data) => {
-    console.log(data);
-  });
-
   socket.on('player-guess', (data) => {
-    guesses.push(data);
+    guesses[data.round] = data;
     console.log(guesses);
+    io.emit('player-has-guessed', guesses);
   })
 });
 

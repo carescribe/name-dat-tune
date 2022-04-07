@@ -21,6 +21,7 @@ function Round(props) {
       window.location = '/';
     }
     props.socket.on('change-round', (message) => {
+      console.log(message.round);
       setRound(message.round);
       setGuess(null)
       navigate(`/round/${
