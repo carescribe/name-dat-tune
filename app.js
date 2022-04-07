@@ -14,7 +14,7 @@ const io = require("socket.io")(server, {
 
 app.use(express.static(path.resolve(__dirname, './react-ui/build')));
 
-app.get('/', (req, res) => {
+app.get('/', (request, response) => {
   response.sendFile(path.resolve(__dirname, './react-ui/build', 'index.html'));
 });
 
