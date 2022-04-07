@@ -2,8 +2,6 @@ const Container = ({children}) => {
     return (
         <div style={
             {
-              width: "80%",
-              maxWidth: "1036",
               backgroundColor: "#FF00C7BF",
               opacity: 0.9,
               paddingTop: 80,
@@ -13,7 +11,8 @@ const Container = ({children}) => {
               display: "flex",
               flexDirection: "column",
               gap: 60,
-              alignItems: "center"
+              alignItems: "center",
+              maxWidth: "80%",
             }
           }>        
           {children}
