@@ -1,6 +1,6 @@
 import Homer from "./images/gifs/homer.gif";
-import Round from "./images/round.png";
 import PleaseWait from "./images/please-wait.png";
+import RoundTitle from "./lib/RoundTitle";
 
 const CheckingAnswers = ({socket}) => {
     return (
@@ -18,11 +18,7 @@ const CheckingAnswers = ({socket}) => {
                 alignItems: "center",
                 justifyContent: "center",
             }}>
-                <img src={Round} /> <span style={{
-                    marginLeft: 20,
-                    fontSize:100,
-                    color: "#fd4b8c",
-                }}>1</span>
+                <RoundTitle roundNumber={1} />
             </div>
             <div style={{
                 flex: 1,
