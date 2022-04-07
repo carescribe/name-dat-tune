@@ -8,6 +8,7 @@ import {
 import io from 'socket.io-client';
 
 import Home from './Home.js';
+import Start from './Start.js';
 import Round from './Round.js';
 import Admin from './Admin.js';
 
@@ -20,11 +21,14 @@ function App() {
     return () => newSocket.close();
   }, [setSocket]);
 
+  console.log({socket})
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/start" element={<Start />} />
           <Route path="/admin" element={<Admin socket={socket} />} />
           <Route path="/round/:roundNo" element={<Round socket={socket} />} />
         </Routes>

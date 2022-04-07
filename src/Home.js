@@ -1,5 +1,7 @@
 import StartButton from './images/start-button.png';
 import NameThatTune from './images/name-that-tune.png';
+import { Link } from "react-router-dom";
+
 
 function Home() {
   return (
@@ -13,10 +15,9 @@ function Home() {
         <img src={NameThatTune}
           alt="Start button"/>
       </div>
-      <a className="App-link" href="/round/1" rel="noopener noreferrer">
-        <img src={StartButton}
-          alt="Start button"/>
-      </a>
+      <Link to="/start">
+        <img src={StartButton} alt="Start button"/>
+      </Link>
     </header>
   );
 }

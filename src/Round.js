@@ -15,11 +15,19 @@ function Round(props) {
     });
   });
 
+  const handleSubmit = (event) => {
+    const guess = event.target.value;
+    props.socket.emit('player-guess', { name: localStorage.getItem('name'), round: props.round, guess: guess });
+  }
 
   let params = useParams();
   return (
     <header className="App-header">
       <h1>Round {params.roundNo}</h1>
+      <form onSubmit={handleSubmit}>
+        <input type="text" placeholder="Enter your guess" />
+      </form>
+
     </header>
   );
 }
