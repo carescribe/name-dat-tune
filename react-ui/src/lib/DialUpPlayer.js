@@ -24,6 +24,7 @@ const DialUpPlayer = ({navTo}) => {
             audioRef.current.removeEventListener('ended', () => {
                //
             });  
+            audioRef.current.pause();
          }
       }
    },[audioRef.current]);

@@ -19,7 +19,6 @@ function Home() {
   }
 
   const handleJoinGame = () => { 
-    console.log("clicked!")
     setShowDialup(true);
   }
 
