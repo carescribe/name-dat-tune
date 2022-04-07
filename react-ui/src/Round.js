@@ -15,6 +15,9 @@ function Round(props) {
   const [guess, setGuess] = useState(null);
 
   useEffect(() => {
+    if (!localStorage.getItem('player') || !props.socket) {
+      window.location = '/';
+    }
     props.socket.on('change-round', (message) => {
       console.log(message);
       navigate(`/round/${message.round}`); 
@@ -22,7 +25,8 @@ function Round(props) {
   });
 
   const handleSubmit = (event) => {
-    props.socket.emit('player-guess', { name: localStorage.getItem('name'), round: props.round, guess: guess });
+    const guess = event.target.value;
+    props.socket.emit('player-guess', { name: localStorage.getItem('player'), round: props.round, guess: guess });
   }
 
   let params = useParams();
