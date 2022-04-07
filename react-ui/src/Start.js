@@ -1,20 +1,32 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import JoinGame from './images/join-game.png';
 import WhatIsYourName from './images/what-is-your-name.png';
 import Button from "./lib/Button";
 import Container from "./lib/Container";
 import GifStack from "./lib/GifStack";
+import DialUpPlayer from "./lib/DialUpPlayer";
 
 function Home() {
+
+  const navToAfterConnect = "/round/1";
+
+  const [showDialup, setShowDialup] = useState(false);
 
   const handleNameChange = (event) => {
     console.log('Name ' + event.target.value);
     localStorage.setItem('player', event.target.value);
   }
 
+  const handleJoinGame = () => { 
+    console.log("clicked!")
+    setShowDialup(true);
+  }
+
   return (
     <header className="App-header">
-      
+
+
       <GifStack />
 
       <Container>
@@ -53,14 +65,13 @@ function Home() {
               width: "1036",
           }}/>
         </div>
-        <Link to="/round/1">
-          <Button style={{
-          }}>
-            <img src={JoinGame} />
-          </Button>
-        </Link>
+        <Button onClick={handleJoinGame}>
+          <img src={JoinGame} />
+        </Button>
       </Container>      
+      {showDialup && <DialUpPlayer navTo={navToAfterConnect} />}
     </header>
+    
   );
 }
 
