@@ -16,7 +16,7 @@ function App() {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io(`https://name-dat-tune-server.herokuapp.com`);
+    const newSocket = io(`/`);
     setSocket(newSocket);
     return () => newSocket.close();
   }, [setSocket]);
