@@ -4,15 +4,8 @@ const path = require('path');
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-
-const options = (process.env.ORIGIN_HOST ? {
-  cors: {
-    origin: process.env.ORIGIN_HOST
-  }
-}: {});
-const io = require("socket.io")(server, options);
-
-let guesses = [];
+// const io = new Server(server);
+const io = require("socket.io")();
 
 app.use(express.static(path.resolve(__dirname, './react-ui/build')));
 
