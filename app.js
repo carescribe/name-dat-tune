@@ -19,9 +19,19 @@ app.get('*', function(request, response) {
 
 io.on('connection', (socket) => {
   console.log('a user connected');
+
   socket.on('admin-change-round', (data) => {
     console.log(data);
     io.emit('change-round', data);
+  })
+
+  socket.on('message', (data) => {
+    console.log(data);
+  });
+
+  socket.on('player-guess', (data) => {
+    guesses.push(data);
+    console.log(guesses);
   })
 });
 

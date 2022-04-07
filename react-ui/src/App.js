@@ -17,7 +17,7 @@ function App() {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io(`/`);
+    const newSocket = io('http://localhost:3000/');
     setSocket(newSocket);
     return () => newSocket.close();
   }, [setSocket]);
@@ -31,7 +31,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/start" element={<Start />} />
           <Route path="/admin" element={<Admin socket={socket} />} />
-          <Route path="/round/:roundNo" element={<Round socket={socket} />} />
+          <Route path="/round/:round" element={<Round socket={socket} />} />
           <Route path="/checking" element={<CheckingAnswers socket={socket} />} />
         </Routes>
       </BrowserRouter>
